@@ -1,4 +1,17 @@
+:root {
+  --backgoundGreen: linear-gradient(180deg, #46bc8b 0%, #264d5b 100%);
+  --activeBtn: #46bc8b;
+  --disableBtn: #91c2ae;
+  --greenTitle: #337b6f;
+  --greenText: #46bc8b;
+  --grayText: #7a7a7a;
+  --blueBar: #0983af;
+  --grenBar: #46bc8b;
+  --redBar: #951f5f;
+  --btnLimpearShadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 * {
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
