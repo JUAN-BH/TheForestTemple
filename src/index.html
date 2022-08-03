@@ -14,19 +14,40 @@
     <title>Talentum</title>
   </head>
   <body>
-    <div class="login">
-      <div class="logo">
-        <img src="" alt="" />
-      </div>
-      <div class="formLogin">
-        <h1>Iniciar Sesión</h1>
-        <form action="">
-          <input type="text" placeholder="Usuario" />
-          <input type="text" placeholder="Contraseña" />
+    <header>
+      <section class="headerGame"></section>
+    </header>
+    <main>
+      <div class="login">
+        <h1 class="login__title">Iniciar Sesión</h1>
+        <form action="" class="login__formLog">
+          <label for="inputUser">
+            <span class="userIcon"></span>
+            <input
+              type="text"
+              placeholder="Usuario"
+              name="inputUser"
+              class="inputUser"
+            />
+          </label>
+
+          <label for="inputPassword">
+            <span class="lockIcon"></span>
+            <input
+              type="password"
+              placeholder="Contraseña"
+              name="inputPassword"
+              class="inputUser"
+            />
+          </label>
         </form>
-        <button>Iniciar</button>
-        <p>Aun no tienes una cuenta, crea una <span>aquí</span></p>
+        <button class="login--btn">Iniciar</button>
+        <p class="login__info">
+          Aun no tienes una cuenta, crea una <br /><span class="info__register"
+            >aquí</span
+          >
+        </p>
       </div>
-    </div>
+    </main>
   </body>
 </html>
