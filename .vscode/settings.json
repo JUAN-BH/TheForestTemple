@@ -1,5 +1,6 @@
 {
     "liveServer.settings.port": 5501,
+    "peacock.color": "#215732",
     "workbench.colorCustomizations": {
         "panel.border": "#2f7c47",
         "sash.hoverBorder": "#2f7c47",
@@ -10,6 +11,5 @@
         "statusBarItem.remoteBackground": "#215732",
         "statusBarItem.remoteForeground": "#e7e7e7",
         "tab.activeBorder": "#2f7c47"
-    },
-    "peacock.color": "#215732"
+    }
 }

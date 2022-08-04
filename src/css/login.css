@@ -1,25 +1,4 @@
-:root {
-  --backgoundGreen: linear-gradient(180deg, #46bc8b 0%, #264d5b 100%);
-  --backgroundPanelWhite: #f5f5f5;
-  --activeBtn: #46bc8b;
-  --disableBtn: #91c2ae;
-  --greenTitle: #337b6f;
-  --greenText: #46bc8b;
-  --grayText: #7a7a7a;
-  --blueBar: #0983af;
-  --grenBar: #46bc8b;
-  --redBar: #951f5f;
-  --btnLimpearShadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-}
-body {
-  background: var(--backgoundGreen) no-repeat center center fixed;
-}
+@import url("global.CSS");
 
 header .headerGame {
   width: 947px;
@@ -39,12 +18,9 @@ header .headerGame {
   background-color: var(--backgroundPanelWhite);
   border-radius: 10px;
 }
+
 .login__title {
   margin: 37px 0;
-  font-size: 36px;
-  line-height: 44px;
-  font-weight: bold;
-  color: var(--greenTitle);
 }
 
 .login__formLog {
@@ -53,7 +29,7 @@ header .headerGame {
   display: flex;
   flex-flow: column;
 }
-label {
+.formLog_label {
   display: flex;
   align-items: center;
   background: white;
@@ -62,7 +38,7 @@ label {
   padding: 0 0 0 0.9rem;
   border-radius: 5px;
 }
-label:first-child {
+.formLog_label:first-child {
   margin-bottom: 26px;
 }
 .userIcon {
@@ -105,12 +81,4 @@ label:first-child {
   color: var(--grayText);
   text-align: center;
   /* width: 100%; */
-}
-.login__info span {
-  cursor: pointer;
-}
-.info__register {
-  text-decoration: underline;
-  font-size: 15px;
-  color: var(--greenText);
 }

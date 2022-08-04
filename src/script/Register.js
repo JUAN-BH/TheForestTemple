@@ -1,0 +1,222 @@
+const api = axios.create({
+  baseURL: "https://api.countrystatecity.in/v1/",
+  headers: {
+    "X-CSCAPI-KEY": "cElxVFJvNkJRemdtTEVTZEVUR1F0MEU4V01jd0tiamlKalZrcXZZdQ==",
+  },
+});
+
+localidad.addEventListener("click", () => {
+  localidad.classList.toggle("local-active");
+  userInfoContainer.style.display = "none";
+  userLocationContainer.style.display = "block";
+});
+perfil.addEventListener("click", () => {
+  localidad.classList.toggle("local-active");
+  userInfoContainer.style.display = "block";
+  userLocationContainer.style.display = "none";
+});
+btnRegister.addEventListener("click", async () => {
+  const userName = userNameInput.value;
+  const userPassword = userPasswordInput.value;
+  const userConfirmPassword = userConfirmPasswordInput.value;
+  const userAge = userAgeInput.value;
+  const userCountry = selectedCountry.innerHTML;
+  const userState = selectedState.innerHTML;
+  const userCity = selectedCity.innerHTML;
+  if (
+    userName === "" ||
+    userPassword === "" ||
+    userConfirmPassword === "" ||
+    userAge === "" ||
+    userCountry === "" ||
+    userState === "" ||
+    userCity === ""
+  ) {
+    alert("Todos los campos son obligatorios");
+  } else if (userPassword === userConfirmPassword) {
+    // const response = await api.post("register", {
+    //   name: userName,
+    //   password: userPassword,
+    //   age: userAge,
+    //   country: userCountry,
+    //   state: userState,
+    //   city: userCity,
+    // });
+    // console.log(response);
+    alert("Registro exitoso");
+  } else {
+    alert("Las contraseñas no coinciden");
+  }
+});
+//COUNTRIES
+selectedCountry.addEventListener("click", () => {
+  optionsContainerCountries.classList.toggle("active");
+  searchBoxCountries.classList.toggle("hidden");
+  searchBoxCountries.value = "";
+  if (optionsContainerCountries.classList.contains("active")) {
+    document.querySelector(".inputSearch").focus();
+  }
+});
+function renderItems(data, optionsContainer, selectedItem, searchBox, method) {
+  const items = data
+    .map((e) => {
+      return `<div class="option" id="${e.iso2}">
+                 <input type="radio" class="radio" />
+                 <label for="film">${e.name}</label>
+            </div>`;
+    })
+    .join("");
+  optionsContainer.innerHTML = items;
+  const optionsList = document.querySelectorAll(".option");
+  if (selectedItem.innerHTML === "") {
+    location.hash = "";
+  }
+  optionsList.forEach((o) => {
+    o.addEventListener("click", () => {
+      searchBox.classList.toggle("hidden");
+      selectedItem.innerHTML = o.querySelector("label").innerHTML;
+      optionsContainer.classList.remove("active");
+
+      location.hash = o.getAttribute("id");
+      method();
+    });
+  });
+  searchBox.addEventListener("keyup", function (e) {
+    const searchItem = e.target.value;
+    const searchCountry = searchItem.toLowerCase();
+    optionsList.forEach((option) => {
+      let label =
+        option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+      if (label.indexOf(searchCountry) != -1) {
+        option.style.display = "block";
+      } else {
+        option.style.display = "none";
+      }
+    });
+  });
+}
+async function getCountries() {
+  const { data, status } = await api("countries");
+  console.log("api", data);
+  renderItems(
+    data,
+    optionsContainerCountries,
+    selectedCountry,
+    searchBoxCountries,
+    getStates
+  );
+}
+getCountries();
+//STATES
+selectedState.addEventListener("click", () => {
+  optionsContainerStates.classList.toggle("active");
+  searchBoxStates.classList.toggle("hidden");
+  searchBoxStates.value = "";
+  if (optionsContainerStates.classList.contains("active")) {
+    document.querySelector(".inputSearchStates").focus();
+  }
+});
+async function getStates() {
+  if (location.hash.length > 2) {
+    const { data, stauts } = await api(
+      `countries/${location.hash.slice(1)}/states`
+    );
+    if (data.length === 0) {
+      selectedState.innerHTML = "No se encontro ningun departamento";
+    } else {
+      selectedState.innerHTML = "";
+    }
+
+    const states = data
+      .map((e) => {
+        return `<div class="option opState" id="${e.iso2}">
+                 <input type="radio" class="radio" />
+                 <label for="film">${e.name}</label>
+            </div>`;
+      })
+      .join("");
+    optionsContainerStates.innerHTML = states;
+    const optionsList = document.querySelectorAll(".opState");
+
+    optionsList.forEach((o) => {
+      o.addEventListener("click", () => {
+        searchBoxStates.classList.toggle("hidden");
+        selectedState.innerHTML = o.querySelector("label").innerHTML;
+        optionsContainerStates.classList.remove("active");
+
+        location.hash = `${location.hash}-${o.getAttribute("id")}`;
+        getCities();
+      });
+    });
+    searchBoxStates.addEventListener("keyup", function (e) {
+      const searchItem = e.target.value;
+      const searchCountry = searchItem.toLowerCase();
+      optionsList.forEach((option) => {
+        let label =
+          option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+        if (label.indexOf(searchCountry) != -1) {
+          option.style.display = "block";
+        } else {
+          option.style.display = "none";
+        }
+      });
+    });
+  }
+}
+//CITIES
+selectedCity.addEventListener("click", () => {
+  optionsContainerCities.classList.toggle("active");
+  searchBoxCities.classList.toggle("hidden");
+  searchBoxCities.value = "";
+  if (optionsContainerCities.classList.contains("active")) {
+    document.querySelector(".inputSearchCities").focus();
+  }
+});
+async function getCities() {
+  if (location.hash.length > 2) {
+    const [country, state] = location.hash.slice(1).split("-");
+    const { data, stauts } = await api(
+      `countries/${country}/states/${state}/cities`
+    );
+    if (data.length === 0) {
+      selectedCity.innerHTML = "No se encontro ningun departamento";
+    } else {
+      selectedCity.innerHTML = "";
+    }
+
+    const states = data
+      .map((e) => {
+        return `<div class="option opCity" id="${e.iso2}">
+                 <input type="radio" class="radio" />
+                 <label for="film">${e.name}</label>
+            </div>`;
+      })
+      .join("");
+    optionsContainerCities.innerHTML = states;
+    const optionsList = document.querySelectorAll(".opCity");
+
+    optionsList.forEach((o) => {
+      o.addEventListener("click", () => {
+        searchBoxCities.classList.toggle("hidden");
+        selectedCity.innerHTML = o.querySelector("label").innerHTML;
+        optionsContainerCities.classList.remove("active");
+
+        location.hash = `${location.hash}-${o.getAttribute("id")}`;
+        // method();
+      });
+    });
+    searchBoxCities.addEventListener("keyup", function (e) {
+      const searchItem = e.target.value;
+      const searchCountry = searchItem.toLowerCase();
+      optionsList.forEach((option) => {
+        let label =
+          option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+        if (label.indexOf(searchCountry) != -1) {
+          option.style.display = "block";
+        } else {
+          option.style.display = "none";
+        }
+      });
+    });
+  }
+}

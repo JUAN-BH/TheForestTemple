@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/register.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <main class="mainRegister">
+      <section class="userInformation">
+        <h1 class="userInformation__title greenTitle">Bienvenido a ...</h1>
+        <nav class="userInformation__nav">
+          <ul class="nav__list">
+            <li class="list_menu perfil">Perfil</li>
+            <li class="list_menu localidad">Localidad</li>
+          </ul>
+        </nav>
+        <div class="userInformation__userInfo">
+          <div class="userInfo__info">
+            <label for="userName">Usuario </label>
+            <input
+              type="text"
+              name="userName"
+              id="userName"
+              oninput="displayLocation()"
+            />
+            <label for="userPassword">Contraseña</label>
+            <input type="password" name="userPassword" id="userPassword" />
+            <label for="confirmPassword">Confirmar Contraseña</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+            />
+            <label for="userAge">Edad</label>
+            <input type="number" name="userAge" id="userAge" />
+          </div>
+          <div class="userInfo__location">
+            <label for="" class="countryLabel">
+              País
+              <div class="select-box select-box-countries">
+                <div class="options-container optionsCountries">
+                  <!-- <div class="option">
+                  <input type="radio" class="radio" />
+                  <label for="film">Buffalo</label>
+                </div> -->
+                </div>
+                <div class="selected selectedCountry"></div>
+                <div class="search-box searchCountry">
+                  <input
+                    type="text"
+                    placeholder="Buscar País"
+                    class="inputSearch"
+                  />
+                </div>
+              </div>
+            </label>
+
+            <label for="" class="stateLabel">
+              Departamento
+              <div class="select-box select-box-states">
+                <div class="options-container optionsStates">
+                  <!-- <div class="option">
+                  <input type="radio" class="radio" />
+                  <label for="film">Buffalo</label>
+                </div> -->
+                </div>
+                <div class="selected selectedState"></div>
+                <div class="search-box searchState">
+                  <input
+                    type="text"
+                    placeholder="Buscar Departamento"
+                    class="inputSearchStates"
+                  />
+                </div>
+              </div>
+            </label>
+
+            <label for="" class="cityLabel">
+              Municipio
+              <div class="select-box select-box-cities">
+                <div class="options-container optionsCities">
+                  <!-- <div class="option">
+                  <input type="radio" class="radio" />
+                  <label for="film">Buffalo</label>
+                </div> -->
+                </div>
+                <div class="selected selectedCity"></div>
+                <div class="search-box searchCity">
+                  <input
+                    type="text"
+                    placeholder="Buscar Municipio"
+                    class="inputSearchCities"
+                  />
+                </div>
+              </div>
+            </label>
+
+            <button type="button" class="btn--registrar">REGISTRAR</button>
+          </div>
+        </div>
+      </section>
+      <section class="promo">
+        <article class="promo__img"></article>
+        <p class="promo__info">
+          Aun no tienes una cuenta, crea una <br /><span class="info__register"
+            >aquí</span
+          >
+        </p>
+      </section>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="/src/script/RegisterNodes.js"></script>
+      <script src="/src/script/Register.js"></script>
+    </main>
+  </body>
+</html>
