@@ -1,0 +1,58 @@
+@import url("global.CSS");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    max-width: 50%;
+    height: 85vh;
+    display: flex;
+    flex-flow: column;
+  
+    align-items: center;
+    margin: 3rem;
+    background-color: #F5F5F5;
+}
+
+.container h2{
+    margin: 2rem;
+}
+.container p{
+    margin: 4rem;
+    font-size: 20px;
+    text-align: center;
+}
+.container__btn{
+    max-width: 100%;
+    margin: 16rem;
+    height: auto;
+    display: flex;
+    flex-flow: row;
+    
+}
+
+.btn{
+  width: 300px;
+  margin: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: var(--disableBtn);
+  color: var(--backgroundPanelWhite);
+  border: none;
+  border-radius: 5px;
+}
+
+.container__btn--saltar{
+    background-color: #F5F5F5;
+    border: 2px solid #46bc8b ;
+    color: #46bc8b;
+}
