@@ -9,6 +9,10 @@ const userNameInput = $("#userName");
 const userPasswordInput = $("#userPassword");
 const userConfirmPasswordInput = $("#confirmPassword");
 const userAgeInput = $("#userAge");
+const confirmPasswordLabel = $(".confirmPasswordLabel");
+const userFail = $(".userFail");
+const passFail = $(".passFail");
+const allUserInfoInputs = $$(".userInfoInput");
 //FORM USER LOCATION
 const userLocationContainer = $(".userInfo__location");
 const btnRegister = $(".btn--registrar");
@@ -24,3 +28,5 @@ const searchBoxStates = $(".searchState");
 const selectedCity = $(".selectedCity");
 const optionsContainerCities = $(".optionsCities");
 const searchBoxCities = $(".searchCity");
+//MODAL EVENTS
+const modalLoading = $(".modalContainer");

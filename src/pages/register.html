@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
+    <title>Registracion</title>
     <link rel="stylesheet" href="../css/register.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap"
@@ -17,10 +17,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
     <main class="mainRegister">
-      <section class="userInformation">
+      <section class="animate__animated animate__fadeIn userInformation">
         <h1 class="userInformation__title greenTitle">Bienvenido a ...</h1>
         <nav class="userInformation__nav">
           <ul class="nav__list">
@@ -31,22 +35,41 @@
         <div class="userInformation__userInfo">
           <div class="userInfo__info">
             <label for="userName">Usuario </label>
+            <p class="userFail inputFail">
+              Usuario ya existente, intenta con otro nombre*
+            </p>
             <input
               type="text"
               name="userName"
               id="userName"
-              oninput="displayLocation()"
+              class="userInfoInput"
             />
             <label for="userPassword">Contraseña</label>
-            <input type="password" name="userPassword" id="userPassword" />
-            <label for="confirmPassword">Confirmar Contraseña</label>
+            <input
+              type="password"
+              name="userPassword"
+              id="userPassword"
+              class="userInfoInput"
+            />
+            <label for="confirmPassword" class="confirmPasswordLabel"
+              >Confirmar Contraseña</label
+            >
+            <p class="passFail inputFail">
+              Las Contraseñas no conciden, porfavor vuelve a intentar*
+            </p>
             <input
               type="password"
               name="confirmPassword"
               id="confirmPassword"
+              class="userInfoInput"
             />
             <label for="userAge">Edad</label>
-            <input type="number" name="userAge" id="userAge" />
+            <input
+              type="number"
+              name="userAge"
+              id="userAge"
+              class="userInfoInput"
+            />
           </div>
           <div class="userInfo__location">
             <label for="" class="countryLabel">
@@ -112,18 +135,24 @@
             <button type="button" class="btn--registrar">REGISTRAR</button>
           </div>
         </div>
+        <div class="modalContainer">
+          <span class="loader"></span>
+        </div>
       </section>
-      <section class="promo">
+      <section class="animate__animated animate__fadeIn promo">
         <article class="promo__img"></article>
         <p class="promo__info">
-          Aun no tienes una cuenta, crea una <br /><span class="info__register"
-            >aquí</span
+          ¿Ya tienes una cuenta? Ingresa <br /><a
+            href="/src/index.html"
+            class="info__register"
+            >aquí</a
           >
         </p>
       </section>
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="/src/script/Global.js" type="module"></script>
       <script src="/src/script/RegisterNodes.js"></script>
-      <script src="/src/script/Register.js"></script>
+      <script src="/src/script/Register.js" type="module"></script>
     </main>
   </body>
 </html>

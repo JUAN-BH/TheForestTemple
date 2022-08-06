@@ -1,4 +1,5 @@
 @import url("global.CSS");
+@import url("/src/css/animations.css");
 
 .mainRegister {
   display: flex;
@@ -75,38 +76,70 @@
   width: 444px;
   height: 60px;
   margin-top: 20px;
+  cursor: pointer;
   font-size: 20px;
   color: white;
   border: none;
   background-color: var(--disableBtn);
+  transition: all 0.2s ease-in-out;
+}
+.btn--registrar:hover {
+  background-color: var(--greenText);
 }
 
-.promo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 40%;
+.inputFail {
+  color: red;
+  margin-bottom: 8px;
+}
+.userFail,
+.passFail {
+  display: none;
+}
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
-.promo__img {
-  width: 330px;
-  height: 80%;
-  /* min-height: 578px; */
-  /* max-height: 613px; */
-  /* margin-top: 100px; */
-  background: #d9d9d9;
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 24px);
+  top: calc(50% - 24px);
+  animation: rotate 1s linear infinite;
 }
-.promo__info {
-  margin-top: 30px;
-  font-size: 15px;
-  color: white;
-  text-align: center;
+.loader::before,
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  animation: prixClipFix 2s linear infinite;
+}
+.loader::after {
+  border-color: var(--greenText);
+  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+  inset: 6px;
 }
 
 /***SELECTS***/
-.hidden {
+.visible {
   display: block !important;
+}
+.hidden {
+  display: none !important;
 }
 .select-box {
   position: absolute;
@@ -227,4 +260,28 @@
 }
 .select-box-states {
   z-index: 15;
+}
+
+/***PROMO***/
+.promo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 100%;
+}
+.promo__img {
+  width: 330px;
+  height: 80%;
+  /* min-height: 578px; */
+  /* max-height: 613px; */
+  /* margin-top: 100px; */
+  background: #d9d9d9;
+}
+.promo__info {
+  margin-top: 30px;
+  font-size: 15px;
+  color: white;
+  text-align: center;
 }

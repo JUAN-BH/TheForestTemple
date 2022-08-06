@@ -11,6 +11,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Talentum</title>
   </head>
   <body>
@@ -18,7 +22,7 @@
       <section class="headerGame"></section>
     </header>
     <main>
-      <div class="login">
+      <div class="animate__animated animate__fadeIn login">
         <h1 class="login__title greenTitle">Iniciar Sesión</h1>
         <form action="" class="login__formLog">
           <label class="formLog_label" for="inputUser">
@@ -43,11 +47,14 @@
         </form>
         <button class="login--btn">Iniciar</button>
         <p class="login__info">
-          Aun no tienes una cuenta, crea una <br /><span class="info__register"
-            >aquí</span
+          Aun no tienes una cuenta, crea una <br /><a
+            href="/src/pages/register.html"
+            class="info__register"
+            >aquí</a
           >
         </p>
       </div>
     </main>
+    <script src="script/Global.js" type="module"></script>
   </body>
 </html>

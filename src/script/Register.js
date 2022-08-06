@@ -1,10 +1,11 @@
+import { idGenerator, saveUser, loadInitalState } from "./Global.js";
+loadInitalState();
 const api = axios.create({
   baseURL: "https://api.countrystatecity.in/v1/",
   headers: {
     "X-CSCAPI-KEY": "cElxVFJvNkJRemdtTEVTZEVUR1F0MEU4V01jd0tiamlKalZrcXZZdQ==",
   },
 });
-
 localidad.addEventListener("click", () => {
   localidad.classList.toggle("local-active");
   userInfoContainer.style.display = "none";
@@ -15,7 +16,7 @@ perfil.addEventListener("click", () => {
   userInfoContainer.style.display = "block";
   userLocationContainer.style.display = "none";
 });
-btnRegister.addEventListener("click", async () => {
+btnRegister.addEventListener("click", () => {
   const userName = userNameInput.value;
   const userPassword = userPasswordInput.value;
   const userConfirmPassword = userConfirmPasswordInput.value;
@@ -34,24 +35,65 @@ btnRegister.addEventListener("click", async () => {
   ) {
     alert("Todos los campos son obligatorios");
   } else if (userPassword === userConfirmPassword) {
-    // const response = await api.post("register", {
-    //   name: userName,
-    //   password: userPassword,
-    //   age: userAge,
-    //   country: userCountry,
-    //   state: userState,
-    //   city: userCity,
-    // });
-    // console.log(response);
-    alert("Registro exitoso");
+    const user = {
+      id: idGenerator(),
+      name: userName,
+      password: userPassword,
+      age: userAge,
+      userLocation: {
+        country: userCountry,
+        state: userState,
+        city: userCity,
+      },
+      userResults: {
+        cleanRooms: "0",
+        powerUps: "0",
+        energies: "0",
+      },
+    };
+    saveUser(user);
+    sessionStorage.setItem("user", JSON.stringify(user));
+    // alert("Registro exitoso");
+    window.location.href = "/src/index.html";
   } else {
     alert("Las contraseñas no coinciden");
   }
 });
+function checkPassword() {
+  if (userPasswordInput.value !== userConfirmPasswordInput.value) {
+    passFail.classList.add("visible");
+  } else {
+    passFail.classList.remove("visible");
+  }
+}
+userConfirmPasswordInput.addEventListener("change", checkPassword);
+userNameInput.addEventListener("change", function (e) {
+  const userName = e.target.value;
+  const userNameNoSpaces = userName.replace(/\s/g, "").toLowerCase();
+  const users = JSON.parse(localStorage.getItem("users"));
+  console.log("users", users);
+  // if (users) {
+  users.forEach((user) => {
+    if (user.userName.toLowerCase() === userNameNoSpaces) {
+      // alert("El nombre de usuario ya existe");
+      // userFail.classList.add("visible");
+      userFail.style.display = "block";
+      console.log("EL NOMBRE YA EXISTE");
+    } else {
+      userFail.style.display = "none";
+      console.log("EL NOMBRE NO EXISTE");
+      // userFail.classList.remove("visible");
+      // userPasswordInput.disabled = false;
+      // userConfirmPasswordInput.disabled = false;
+      // userAgeInput.disabled = false;
+    }
+  });
+  // }
+});
 //COUNTRIES
 selectedCountry.addEventListener("click", () => {
   optionsContainerCountries.classList.toggle("active");
-  searchBoxCountries.classList.toggle("hidden");
+  searchBoxCountries.classList.toggle("visible");
   searchBoxCountries.value = "";
   if (optionsContainerCountries.classList.contains("active")) {
     document.querySelector(".inputSearch").focus();
@@ -73,7 +115,7 @@ function renderItems(data, optionsContainer, selectedItem, searchBox, method) {
   }
   optionsList.forEach((o) => {
     o.addEventListener("click", () => {
-      searchBox.classList.toggle("hidden");
+      searchBox.classList.toggle("visible");
       selectedItem.innerHTML = o.querySelector("label").innerHTML;
       optionsContainer.classList.remove("active");
 
@@ -97,7 +139,7 @@ function renderItems(data, optionsContainer, selectedItem, searchBox, method) {
 }
 async function getCountries() {
   const { data, status } = await api("countries");
-  console.log("api", data);
+  // console.log("api", data);
   renderItems(
     data,
     optionsContainerCountries,
@@ -110,7 +152,7 @@ getCountries();
 //STATES
 selectedState.addEventListener("click", () => {
   optionsContainerStates.classList.toggle("active");
-  searchBoxStates.classList.toggle("hidden");
+  searchBoxStates.classList.toggle("visible");
   searchBoxStates.value = "";
   if (optionsContainerStates.classList.contains("active")) {
     document.querySelector(".inputSearchStates").focus();
@@ -118,9 +160,12 @@ selectedState.addEventListener("click", () => {
 });
 async function getStates() {
   if (location.hash.length > 2) {
+    modalLoading.style.display = "block";
+    selectedCity.innerHTML = "";
     const { data, stauts } = await api(
       `countries/${location.hash.slice(1)}/states`
     );
+    modalLoading.style.display = "none";
     if (data.length === 0) {
       selectedState.innerHTML = "No se encontro ningun departamento";
     } else {
@@ -140,7 +185,7 @@ async function getStates() {
 
     optionsList.forEach((o) => {
       o.addEventListener("click", () => {
-        searchBoxStates.classList.toggle("hidden");
+        searchBoxStates.classList.toggle("visible");
         selectedState.innerHTML = o.querySelector("label").innerHTML;
         optionsContainerStates.classList.remove("active");
 
@@ -166,7 +211,7 @@ async function getStates() {
 //CITIES
 selectedCity.addEventListener("click", () => {
   optionsContainerCities.classList.toggle("active");
-  searchBoxCities.classList.toggle("hidden");
+  searchBoxCities.classList.toggle("visible");
   searchBoxCities.value = "";
   if (optionsContainerCities.classList.contains("active")) {
     document.querySelector(".inputSearchCities").focus();
@@ -175,11 +220,13 @@ selectedCity.addEventListener("click", () => {
 async function getCities() {
   if (location.hash.length > 2) {
     const [country, state] = location.hash.slice(1).split("-");
+    modalLoading.style.display = "block";
     const { data, stauts } = await api(
       `countries/${country}/states/${state}/cities`
     );
+    modalLoading.style.display = "none";
     if (data.length === 0) {
-      selectedCity.innerHTML = "No se encontro ningun departamento";
+      selectedCity.innerHTML = "No se encontro ningun municipio";
     } else {
       selectedCity.innerHTML = "";
     }
@@ -197,7 +244,7 @@ async function getCities() {
 
     optionsList.forEach((o) => {
       o.addEventListener("click", () => {
-        searchBoxCities.classList.toggle("hidden");
+        searchBoxCities.classList.toggle("visible");
         selectedCity.innerHTML = o.querySelector("label").innerHTML;
         optionsContainerCities.classList.remove("active");
 
