@@ -1,0 +1,160 @@
+@import url("global.CSS");
+@import url("/src/css/animations.css");
+
+.arrowback {
+  font-size: 60px;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 45px;
+  top: 35px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 72px 74px;
+}
+
+.encabezado {
+  color: whitesmoke;
+  height: 49px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 49px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  margin-bottom: 75px;
+}
+.informacion {
+  width: 100%;
+  display: flex;
+  column-gap: 75px;
+  justify-content: center;
+}
+.estadisticas {
+  display: flex;
+  flex-direction: column;
+  row-gap: 44px;
+}
+.statisticsHead {
+  display: flex;
+  column-gap: 34px;
+  align-items: center;
+}
+.statisticsTitle {
+  width: 588px;
+  height: 34px;
+  font-weight: 500;
+  font-size: 28px;
+  font-style: normal;
+  line-height: 34px;
+  color: whitesmoke;
+}
+.scores {
+  display: flex;
+  flex-direction: column;
+}
+.scoresTitle {
+  height: 39px;
+  font-weight: 600;
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 45px;
+}
+.scoresStats {
+  display: flex;
+  flex-direction: column;
+  row-gap: 49px;
+}
+.statsCard {
+  width: 298px;
+  height: 166px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 4px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.roomsCleaned {
+  border-color: #0983af;
+  color: #0983af;
+}
+.powerUps {
+  border-color: #46bc8b;
+  color: #46bc8b;
+}
+.energy {
+  border-color: #951f5f;
+  color: #951f5f;
+}
+.select {
+  width: 292px;
+  height: 46px;
+  left: 701px;
+  top: 185px;
+  font-family: "Montserrat";
+  font-style: normal;
+  cursor: pointer;
+  background-color: whitesmoke;
+  border-radius: 4px;
+}
+.statisticsContent {
+  width: 914px;
+  height: 597px;
+  background: #ffffff;
+  box-shadow: 0px 10px 10px rgba(7, 7, 7, 0.15);
+  border-radius: 16px;
+  padding: 25px;
+}
+.partidas {
+  width: 100%;
+  height: 24px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #337b6f;
+  margin-top: 3.56px;
+}
+
+.statsCardHead1 {
+  background: rgba(9, 131, 175, 0.15);
+  justify-content: center;
+  align-items: center;
+  width: 298px;
+  height: 34px;
+  display: flex;
+}
+.statsCardHead2 {
+  justify-content: center;
+  align-items: center;
+  width: 298px;
+  height: 38px;
+  display: flex;
+  background: rgba(70, 188, 139, 0.15);
+  border-radius: 4px;
+}
+.statsCardHead3 {
+  justify-content: center;
+  align-items: center;
+  width: 298px;
+  height: 34px;
+  display: flex;
+  background: rgba(149, 31, 95, 0.15);
+  border-radius: 4px;
+}
+.statsCardContent {
+  width: 100%;
+  flex: 1;
+  display: grid;
+  place-content: center;
+}
+.statsCardContent p {
+  font-weight: 600;
+  font-size: 80px;
+}
