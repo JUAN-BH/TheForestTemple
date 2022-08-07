@@ -64,7 +64,7 @@ userNameInput.addEventListener("change", function (e) {
   }
 });
 perfil.addEventListener("click", () => {
-  localidad.classList.toggle("local-active");
+  // localidad.classList.toggle("local-active");
   userInfoContainer.style.display = "block";
   userLocationContainer.style.display = "none";
 });
@@ -87,25 +87,9 @@ btnRegister.addEventListener("click", () => {
   ) {
     alert("Todos los campos son obligatorios");
   } else if (userPassword === userConfirmPassword) {
-    // const user = {
-    //   id: idGenerator(),
-    //   name: userName,
-    //   password: userPassword,
-    //   age: userAge,
-    //   userLocation: {
-    //     country: userCountry,
-    //     state: userState,
-    //     city: userCity,
-    //   },
-    //   userResults: {
-    //     cleanRooms: "0",
-    //     powerUps: "0",
-    //     energies: "0",
-    //   },
-    // };
     const user = new UserClass({
       userName: userName,
-      userPasword: userPassword,
+      userPassword: userPassword,
       userAge: userAge,
       userCountry: userCountry,
       userState: userState,
@@ -275,7 +259,7 @@ async function getCities() {
         selectedCity.innerHTML = o.querySelector("label").innerHTML;
         optionsContainerCities.classList.remove("active");
 
-        location.hash = `${location.hash}-${o.getAttribute("id")}`;
+        location.hash = `${location.hash}`;
         // method();
       });
     });

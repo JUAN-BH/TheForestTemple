@@ -85,7 +85,7 @@ export class UserClass {
 }
 const jhon = new UserClass({
   userName: "Jhon",
-  userPasword: "852",
+  userPassword: "852",
   userAge: "21",
   userCountry: "Colombia",
   userState: "Cundinamarca",
@@ -94,7 +94,7 @@ const jhon = new UserClass({
 });
 const juan = new UserClass({
   userName: "Juan",
-  userPasword: "elmejorXD",
+  userPassword: "elmejorXD",
   userAge: "21",
   userCountry: "Colombia",
   userState: "Valle del Cauca",
@@ -103,7 +103,7 @@ const juan = new UserClass({
 });
 const david = new UserClass({
   userName: "David",
-  userPasword: "123",
+  userPassword: "123",
   userAge: "17",
   userCountry: "Argentina",
   userState: "Buenos Aires",
@@ -122,7 +122,7 @@ const david = new UserClass({
 });
 const tenchi = new UserClass({
   userName: "TenchiX",
-  userPasword: "852123",
+  userPassword: "852123",
   userAge: "18",
   userCountry: "Japan",
   userState: "Tokyo",
@@ -142,7 +142,7 @@ const tenchi = new UserClass({
 });
 const julis = new UserClass({
   userName: "Julis",
-  userPasword: "852123",
+  userPassword: "852123",
   userAge: "13",
   userCountry: "Ecuador",
   userState: "Guayas",
