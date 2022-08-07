@@ -1,6 +1,8 @@
 @import url("global.CSS");
 @import url("/src/css/animations.css");
-
+body {
+  background: var(--backgroundPanelWhite) no-repeat center center fixed;
+}
 .mainRegister {
   display: flex;
   width: 100%;
@@ -88,6 +90,7 @@
 }
 
 .inputFail {
+  font-size: 14px;
   color: red;
   margin-bottom: 8px;
 }
@@ -264,24 +267,26 @@
 
 /***PROMO***/
 .promo {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 40%;
   height: 100%;
-}
-.promo__img {
-  width: 330px;
-  height: 80%;
-  /* min-height: 578px; */
-  /* max-height: 613px; */
-  /* margin-top: 100px; */
-  background: #d9d9d9;
+  background-image: url("/src/assets/img/backPromoImg2.png");
+  background-size: cover;
+  background-position: -1000px 0px;
+  background-repeat: no-repeat;
 }
 .promo__info {
+  position: absolute;
+  bottom: 50px;
   margin-top: 30px;
-  font-size: 15px;
+  font-size: 18px;
   color: white;
   text-align: center;
+}
+.promo__info a {
+  font-size: 18px;
 }

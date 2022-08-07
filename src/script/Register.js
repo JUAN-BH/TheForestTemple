@@ -1,4 +1,4 @@
-import { idGenerator, saveUser, loadInitalState } from "./Global.js";
+import { idGenerator, saveUser, loadInitalState, UserClass } from "./Global.js";
 loadInitalState();
 const api = axios.create({
   baseURL: "https://api.countrystatecity.in/v1/",
@@ -6,10 +6,62 @@ const api = axios.create({
     "X-CSCAPI-KEY": "cElxVFJvNkJRemdtTEVTZEVUR1F0MEU4V01jd0tiamlKalZrcXZZdQ==",
   },
 });
-localidad.addEventListener("click", () => {
-  localidad.classList.toggle("local-active");
-  userInfoContainer.style.display = "none";
-  userLocationContainer.style.display = "block";
+function inputUserInfoValidator() {
+  const userName = userNameInput.value;
+  const userPassword = userPasswordInput.value;
+  const userConfirmPassword = userConfirmPasswordInput.value;
+  const userAge = userAgeInput.value;
+  if (
+    userName === "" ||
+    userPassword === "" ||
+    userConfirmPassword === "" ||
+    userAge === ""
+  ) {
+  } else {
+    // alert("Todos los campos son obligatorios");
+    localidad.classList.toggle("local-active");
+    userInfoContainer.style.display = "none";
+    userLocationContainer.style.display = "block";
+    localidad.addEventListener("click", () => {
+      localidad.classList.toggle("local-active");
+      userInfoContainer.style.display = "none";
+      userLocationContainer.style.display = "block";
+    });
+  }
+}
+function checkPassword() {
+  if (userPasswordInput.value !== userConfirmPasswordInput.value) {
+    passFail.classList.add("visible");
+    userNameInput.disabled = true;
+    userAgeInput.disabled = true;
+  } else {
+    passFail.classList.remove("visible");
+    userNameInput.disabled = false;
+    userAgeInput.disabled = false;
+    inputUserInfoValidator();
+  }
+}
+userConfirmPasswordInput.addEventListener("change", checkPassword);
+userAgeInput.addEventListener("change", inputUserInfoValidator);
+userNameInput.addEventListener("change", function (e) {
+  const userName = e.target.value;
+  const userNameNoSpaces = userName.replace(/\s/g, "").toLowerCase();
+  const usersNames = JSON.parse(localStorage.getItem("users")).map((e) => {
+    return e.userName.replace(/\s/g, "").toLowerCase();
+  });
+  console.log(usersNames);
+  if (usersNames.includes(userNameNoSpaces)) {
+    userFail.style.display = "block";
+    userPasswordInput.disabled = true;
+    userConfirmPasswordInput.disabled = true;
+    userAgeInput.disabled = true;
+  } else {
+    userFail.style.display = "none";
+    userPasswordInput.disabled = false;
+    userConfirmPasswordInput.disabled = false;
+    userAgeInput.disabled = false;
+    inputUserInfoValidator();
+  }
 });
 perfil.addEventListener("click", () => {
   localidad.classList.toggle("local-active");
@@ -35,60 +87,35 @@ btnRegister.addEventListener("click", () => {
   ) {
     alert("Todos los campos son obligatorios");
   } else if (userPassword === userConfirmPassword) {
-    const user = {
-      id: idGenerator(),
-      name: userName,
-      password: userPassword,
-      age: userAge,
-      userLocation: {
-        country: userCountry,
-        state: userState,
-        city: userCity,
-      },
-      userResults: {
-        cleanRooms: "0",
-        powerUps: "0",
-        energies: "0",
-      },
-    };
+    // const user = {
+    //   id: idGenerator(),
+    //   name: userName,
+    //   password: userPassword,
+    //   age: userAge,
+    //   userLocation: {
+    //     country: userCountry,
+    //     state: userState,
+    //     city: userCity,
+    //   },
+    //   userResults: {
+    //     cleanRooms: "0",
+    //     powerUps: "0",
+    //     energies: "0",
+    //   },
+    // };
+    const user = new UserClass({
+      userName: userName,
+      userPasword: userPassword,
+      userAge: userAge,
+      userCountry: userCountry,
+      userState: userState,
+      userCity: userCity,
+    });
     saveUser(user);
     sessionStorage.setItem("user", JSON.stringify(user));
     // alert("Registro exitoso");
     window.location.href = "/src/index.html";
-  } else {
-    alert("Las contraseñas no coinciden");
   }
-});
-function checkPassword() {
-  if (userPasswordInput.value !== userConfirmPasswordInput.value) {
-    passFail.classList.add("visible");
-  } else {
-    passFail.classList.remove("visible");
-  }
-}
-userConfirmPasswordInput.addEventListener("change", checkPassword);
-userNameInput.addEventListener("change", function (e) {
-  const userName = e.target.value;
-  const userNameNoSpaces = userName.replace(/\s/g, "").toLowerCase();
-  const users = JSON.parse(localStorage.getItem("users"));
-  console.log("users", users);
-  // if (users) {
-  users.forEach((user) => {
-    if (user.userName.toLowerCase() === userNameNoSpaces) {
-      // alert("El nombre de usuario ya existe");
-      // userFail.classList.add("visible");
-      userFail.style.display = "block";
-      console.log("EL NOMBRE YA EXISTE");
-    } else {
-      userFail.style.display = "none";
-      console.log("EL NOMBRE NO EXISTE");
-      // userFail.classList.remove("visible");
-      // userPasswordInput.disabled = false;
-      // userConfirmPasswordInput.disabled = false;
-      // userAgeInput.disabled = false;
-    }
-  });
-  // }
 });
 //COUNTRIES
 selectedCountry.addEventListener("click", () => {
