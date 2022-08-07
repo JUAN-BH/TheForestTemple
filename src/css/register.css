@@ -290,3 +290,17 @@ body {
 .promo__info a {
   font-size: 18px;
 }
+.promo__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+  height: 80%;
+  text-align: center;
+  font-size: 32px;
+  color: white;
+}
+.promo_text p {
+  height: 560px;
+}

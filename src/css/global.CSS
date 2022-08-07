@@ -18,7 +18,8 @@
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background: var(--backgoundGreen) no-repeat center center fixed;
+  background: url("/src/assets/img/backPromoImg2.png") no-repeat center center
+    fixed;
 }
 .greenTitle {
   font-size: 36px;

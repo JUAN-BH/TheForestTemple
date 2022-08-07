@@ -1,10 +1,23 @@
 @import url("global.CSS");
-
-header .headerGame {
-  width: 947px;
+@font-face {
+  font-family: "Alagard";
+  src: url("/src/fonts/alagard.ttf");
+}
+.headerGame {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
   height: 184px;
   margin: 50px auto;
-  background-color: #d9d9d9;
+}
+.headerGame p {
+  font-family: "Alagard";
+  font-size: 128px;
+  color: white;
+  text-align: center;
+  text-shadow: 0px 11px 4px #39344f;
+  margin-top: 20px;
 }
 
 .login {
@@ -17,6 +30,7 @@ header .headerGame {
   margin: auto;
   background-color: var(--backgroundPanelWhite);
   border-radius: 10px;
+  box-shadow: 0px 0px 14px 8px rgba(57, 52, 79, 0.8);
 }
 
 .login__title {
