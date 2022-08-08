@@ -149,20 +149,54 @@ const julis = new UserClass({
   userCity: "Guayaquil",
   matches: [match6, match7, match8, match9, match10],
 });
+//LOCALSTORAGE
 const initialState = [jhon, juan, david, tenchi, julis];
-const initialStateSession = [];
-const readLocalStorage = (key) => {
+export const readLocalStorage = (key) => {
   return localStorage.getItem(key);
 };
-const writeLocalStorage = (key, value) => {
+export const writeLocalStorage = (key, value) => {
   localStorage.setItem(key, value);
-};
-
-export const saveUser = (user) => {
-  const users = JSON.parse(readLocalStorage("users"));
-  users.push(user);
-  writeLocalStorage("users", JSON.stringify(users));
 };
 export const loadInitalState = () => {
   writeLocalStorage("users", JSON.stringify(initialState));
 };
+//sessionStorage
+const readSessionStorage = (key) => {
+  return sessionStorage.getItem(key);
+};
+const writeSessionStorage = (key, value) => {
+  sessionStorage.setItem(key, value);
+};
+export const saveSession = (newUser) => {
+  writeSessionStorage("newUser", JSON.stringify(newUser));
+};
+function savedUsers() {
+  const savedUsers = JSON.parse(readLocalStorage("newUsers"));
+  let users;
+  if (savedUsers) {
+    users = savedUsers;
+  } else {
+    users = initialStateSession;
+  }
+  return users;
+}
+export const saveUser = (newUser) => {
+  const users = savedUsers();
+  newUser = JSON.parse(readSessionStorage("newUser"));
+  users.push(newUser);
+  writeLocalStorage("newUsers", JSON.stringify(users));
+};
+//isLOGGED? && LOGOUT
+export function isLogged() {
+  const userIN = JSON.parse(readLocalStorage("userIN"));
+  if (userIN) {
+    return true;
+  } else {
+    // logout();
+    return false;
+  }
+}
+export function logout() {
+  localStorage.removeItem("userIN");
+  window.location.href = "/src/index.html";
+}

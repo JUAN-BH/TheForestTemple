@@ -1,5 +1,11 @@
-import { idGenerator, saveUser, loadInitalState, UserClass } from "./Global.js";
-loadInitalState();
+import {
+  idGenerator,
+  saveUser,
+  saveSession,
+  loadInitalState,
+  UserClass,
+} from "./Global.js";
+// loadInitalState();
 const api = axios.create({
   baseURL: "https://api.countrystatecity.in/v1/",
   headers: {
@@ -49,8 +55,17 @@ userNameInput.addEventListener("change", function (e) {
   const usersNames = JSON.parse(localStorage.getItem("users")).map((e) => {
     return e.userName.replace(/\s/g, "").toLowerCase();
   });
-  console.log(usersNames);
-  if (usersNames.includes(userNameNoSpaces)) {
+  const newUsersNames = JSON.parse(localStorage.getItem("newUsers")).map(
+    (e) => {
+      return e.userName.replace(/\s/g, "").toLowerCase();
+    }
+  );
+  // console.log("newUsersNames", newUsersNames);
+  // console.log(usersNames);
+  if (
+    usersNames.includes(userNameNoSpaces) ||
+    newUsersNames.includes(userNameNoSpaces)
+  ) {
     userFail.style.display = "block";
     userPasswordInput.disabled = true;
     userConfirmPasswordInput.disabled = true;
@@ -95,8 +110,10 @@ btnRegister.addEventListener("click", () => {
       userState: userState,
       userCity: userCity,
     });
-    saveUser(user);
-    sessionStorage.setItem("user", JSON.stringify(user));
+    // saveUser(user);
+    // sessionStorage.setItem("user", JSON.stringify(user));
+    saveSession(user);
+    saveUser(JSON.parse(sessionStorage.getItem("newUser")));
     // alert("Registro exitoso");
     window.location.href = "/src/index.html";
   }
