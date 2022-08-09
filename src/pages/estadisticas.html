@@ -1,217 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-  
+<head>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Estadistica</title>
     <link rel="stylesheet" href="../css/estadisticas.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
 </html>
+
 <body>
-        <div class="container">
-            <div class="arrowback">
-                <i class="fa-solid fa-rotate-left"></i>
-            </div>
+    <div class="animate__animated animate__fadeIn container">
+        <div class="arrowback">
+            <!-- <i class="fa-solid fa-rotate-left"></i> -->
+        </div>
 
-            <div class="encabezado">
-                <h1>Estadísticas</h1>
-            </div>
+        <div class="encabezado">
+            <h1>Estadísticas</h1>
+        </div>
 
-            <div class="informacion">
-                <div class="estadisticas">
-                    <div class="statisticsHead">
-                        <p class="statisticsTitle">
-                            Información sobre tus últimas 10 partidas
-                        </p>
-                        <div class="filter"> 
-                            <select class="select" onchange="handleInputChange(this)">
-                                <option value="indicadores">Indicadores</option>
-                                <option value="salasLimpiadas">Salas Limpiadas</option>
-                                <option value="powerUpsRecogidos">Power Ups Recogidos</option>
-                                <option value="energiasRecogidas">Energias Recogidas</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="statisticsContent">
-                        <canvas id="myChart"></canvas>
-                        <div class="partidas">Partidas</div>
+        <div class="informacion">
+            <div class="estadisticas">
+                <div class="statisticsHead">
+                    <p class="statisticsTitle">
+                        Información sobre tus últimas 10 partidas
+                    </p>
+                    <div class="filter">
+                        <select class="select" >
+                            <option value="indicadores">Indicadores</option>
+                            <option value="salasLimpiadas">Salas Limpiadas</option>
+                            <option value="powerUpsRecogidos">Power Ups Recogidos</option>
+                            <option value="energiasRecogidas">Energias Recogidas</option>
+                        </select>
                     </div>
                 </div>
-                
-                <div class="scores">
-                    <p class="scoresTitle">Mejores Puntajes</p>
-                    <div class="scoresStats">
-                        <div class="statsCard roomsCleaned">
-                            <div class="statsCardHead1">Salas Limpiadas</div>
-                            <div class="statsCardContent">
-                                <p id="roomsClean">1</p>
-                            </div>
+                <div class="statisticsContent">
+                    <canvas id="myChart"></canvas>
+                    <div class="partidas">Partidas</div>
+                </div>
+            </div>
+
+            <div class="scores">
+                <p class="scoresTitle">Mejores Puntajes</p>
+                <div class="scoresStats">
+                    <div class="statsCard roomsCleaned">
+                        <div class="statsCardHead1">Salas Limpiadas</div>
+                        <div class="statsCardContent">
+                            <p id="roomsClean">1</p>
                         </div>
-                        <div class="statsCard powerUps">
-                            <div class="statsCardHead2">Power Ups recogidos</div>
-                            <div class="statsCardContent">
-                                <p id="powerUps" >1</p>
-                            </div>
+                    </div>
+                    <div class="statsCard powerUps">
+                        <div class="statsCardHead2">Power Ups recogidos</div>
+                        <div class="statsCardContent">
+                            <p id="powerUps">1</p>
                         </div>
-                        <div class="statsCard energy"">
-                            <div class="statsCardHead3">Energias recogidas</div>
-                            <div class="statsCardContent">
-                                <p id="energy"  >1</p>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="statsCard energy"">
+                            <div class=" statsCardHead3">Energias recogidas</div>
+                    <div class="statsCardContent">
+                        <p id="energy">1</p>
                     </div>
                 </div>
             </div>
-        
- 
-        
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            
-            const data = [
-                {
-                "energiasRecogidas": 23,
-                "salasLimpiadas": 5,
-                "powerUpsRecogidos": 25,
-                "fecha": "Sat Aug 06 2022 11:55:09 GMT-0500"
-                },
-                {
-                "energiasRecogidas": 23,
-                "salasLimpiadas": 1,
-                "powerUpsRecogidos": 5,
-                "fecha": "Sat Aug 07 2022 11:55:09 GMT-0500"
-                },
-                {
-                "energiasRecogidas": 23,
-                "salasLimpiadas": 12,
-                "powerUpsRecogidos": 35,
-                "fecha": "Sat Aug 08 2022 11:55:09 GMT-0500"
-                },
-                {
-                "energiasRecogidas": 23,
-                "salasLimpiadas": 12,
-                "powerUpsRecogidos": 35,
-                "fecha": "Sat Aug 08 2022 11:55:09 GMT-0500"
-                },
-                {
-                "energiasRecogidas": 23,
-                "salasLimpiadas": 12,
-                "powerUpsRecogidos": 35,
-                "fecha": "Sat Aug 08 2022 11:55:09 GMT-0500"
-                }
-            ]
-
-            const dataSet = {
-                "energiasRecogidas": {
-                    backgroundColor: '#951F5F',
-                    label: 'Energias recogidas',
-                    data: [],
-                    hidden: false
-                },
-                "salasLimpiadas": {
-                    backgroundColor: '#0983AF',
-                    label: 'Salas Limpiadas',
-                    data: [],
-                    hidden: false
-                },
-                "powerUpsRecogidos": {
-                    backgroundColor: '#46BC8B',
-                    label: 'Power Ups recogidos',
-                    data: [],
-                    hidden: false
-                },
-            }
-
-            const chartElement = document.getElementById('myChart');
-            const myChart = new Chart(chartElement, {
-                type: 'bar',
-                data: {
-                    labels: [],
-                    datasets: [],
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    },
-                    borderRadius: 3,
-                }
-            });
-
-            const getDataSet = (show) => {
-                if(show !== undefined){
-                    Object.keys(dataSet).map((key) => {
-                        dataSet[key].hidden = show === "indicadores" ? false : key !== show
-                    })
-                }
-                let games = []
-                data.map((game, i) => {
-                    dataSet.energiasRecogidas.data.push(game.energiasRecogidas)
-                    dataSet.powerUpsRecogidos.data.push(game.powerUpsRecogidos)
-                    dataSet.salasLimpiadas.data.push(game.salasLimpiadas)
-                    games.push((i + 1).toString())
-                })
-                myChart.data.datasets = Object.values(dataSet)
-                myChart.data.labels = games
-                myChart.update();
-            }
-
-            getDataSet()
-
-            const handleInputChange = (e) => {
-                getDataSet(e.value)
-            }
-
-            const getBestScore = () => {
-                let maxRoomsCleans = 0
-                let maxPowerUps = 0
-                let maxEnergy = 0
-                data.map( (s,index) => {
-                   
-                    if(s.salasLimpiadas > maxRoomsCleans){
-                        maxRoomsCleans = s.salasLimpiadas
-                    }
-
-                    maxPowerUps = s.powerUpsRecogidos > maxPowerUps ? s.powerUpsRecogidos : maxPowerUps
-                    maxEnergy = s.energiasRecogidas > maxEnergy ? s.energiasRecogidas : maxEnergy
-
-                } )
-                const roomElement = document.getElementById("roomsClean")
-                roomElement.innerHTML = maxRoomsCleans
-                const powerElement = document.getElementById("powerUps")
-                powerElement.innerHTML = maxPowerUps
-                const energyElement = document.getElementById("energy")
-               energyElement.innerHTML = maxEnergy
-            }
-            getBestScore();
-            
-            
-            </script>
+        </div>
     </div>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/src/script/Estadisticas.js" type="module"></script>
+    </div>
+</body>
 
-    
-  </body>
 </html>

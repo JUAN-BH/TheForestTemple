@@ -16,24 +16,24 @@ const match1 = new MatchResults({
   energies: "20",
 });
 const match2 = new MatchResults({
-  cleanRooms: "15",
+  cleanRooms: "5",
   powerUps: "10",
-  energies: "25",
+  energies: "15",
 });
 const match3 = new MatchResults({
-  cleanRooms: "20",
-  powerUps: "25",
-  energies: "30",
+  cleanRooms: "2",
+  powerUps: "1",
+  energies: "3",
 });
 const match4 = new MatchResults({
-  cleanRooms: "30",
-  powerUps: "35",
-  energies: "40",
+  cleanRooms: "5",
+  powerUps: "2",
+  energies: "7",
 });
 const match5 = new MatchResults({
-  cleanRooms: "40",
-  powerUps: "45",
-  energies: "50",
+  cleanRooms: "4",
+  powerUps: "4",
+  energies: "5",
 });
 const match6 = new MatchResults({
   cleanRooms: "5",

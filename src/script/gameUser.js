@@ -16,6 +16,9 @@ btnConfirmLogOut.addEventListener("click", logout);
 btnCancelLogOut.addEventListener("click", () => {
   modalLogOut.style.display = "none";
 });
+btnStats.addEventListener("click", () => {
+  window.location.href = "/src/pages/estadisticas.html";
+});
 
 if (!isLogged()) {
   window.location.href = "/src/index.html";
