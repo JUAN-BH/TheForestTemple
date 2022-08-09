@@ -122,6 +122,8 @@ const myChart = new Chart(chartElement, {
 });
 
 const getDataSet = (show) => {
+  console.log("show", show);
+  console.log("KEYS DATASET", Object.keys(dataSet));
   if (show !== undefined) {
     Object.keys(dataSet).map((key) => {
       dataSet[key].hidden = show === "indicadores" ? false : key !== show;
@@ -145,22 +147,34 @@ getDataSet();
 //   return getDataSet(e.value);
 // };
 select.addEventListener("change", (e) => {
-  getDataSet(e.value);
+  getDataSet(select.value);
   //   getDataSet(e.value);
 });
 
 const getBestScore = () => {
-  let maxRoomsCleans = 0;
-  let maxPowerUps = 0;
-  let maxEnergy = 0;
-  data.map((s, index) => {
-    if (s.cleanRooms > maxRoomsCleans) {
-      maxRoomsCleans = s.cleanRooms;
-    }
+  let maxRoomsCleans = data
+    .map((e) => parseInt(e.cleanRooms))
+    .reduce((a, b) => (a > b ? a : b));
 
-    maxPowerUps = s.powerUps > maxPowerUps ? s.powerUps : maxPowerUps;
-    maxEnergy = s.energies > maxEnergy ? s.energies : maxEnergy;
-  });
+  let maxPowerUps = data
+    .map((e) => parseInt(e.powerUps))
+    .reduce((a, b) => (a > b ? a : b));
+  let maxEnergy = data
+    .map((e) => parseInt(e.energies))
+    .reduce((a, b) => (a > b ? a : b));
+  //   data.map((s, index) => {
+  //     if (s.cleanRooms > maxRoomsCleans) {
+  //       maxRoomsCleans = s.cleanRooms;
+  //     }
+
+  //     maxPowerUps = s.powerUps > maxPowerUps ? s.powerUps : maxPowerUps;
+  //     maxEnergy = s.energies > maxEnergy ? s.energies : maxEnergy;
+  //   });
+
+  //   console.log("maxRoomsCleans", maxRoomsCleans);
+  //   console.log("maxPowerUps", maxPowerUps);
+  //   console.log("maxEnergy", maxEnergy);
+
   const roomElement = document.getElementById("roomsClean");
   roomElement.innerHTML = maxRoomsCleans;
   const powerElement = document.getElementById("powerUps");
