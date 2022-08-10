@@ -84,6 +84,7 @@ export class UserClass {
   }
 }
 const jhon = new UserClass({
+  id: 721,
   userName: "Jhon",
   userPassword: "852",
   userAge: "21",
@@ -93,6 +94,7 @@ const jhon = new UserClass({
   matches: [match1, match2, match3, match4, match5, match6, match7, match8],
 });
 const juan = new UserClass({
+  id: 338,
   userName: "Juan",
   userPassword: "elmejorXD",
   userAge: "21",
@@ -102,6 +104,7 @@ const juan = new UserClass({
   matches: [match9, match10],
 });
 const david = new UserClass({
+  id: 689,
   userName: "David",
   userPassword: "123",
   userAge: "17",
@@ -121,6 +124,7 @@ const david = new UserClass({
   ],
 });
 const tenchi = new UserClass({
+  id: 613,
   userName: "TenchiX",
   userPassword: "852123",
   userAge: "18",
@@ -141,6 +145,7 @@ const tenchi = new UserClass({
   ],
 });
 const julis = new UserClass({
+  id: 420,
   userName: "Julis",
   userPassword: "852123",
   userAge: "13",

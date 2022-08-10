@@ -66,6 +66,9 @@ userNameInput.addEventListener("change", function (e) {
     usersNames.includes(userNameNoSpaces) ||
     newUsersNames.includes(userNameNoSpaces)
   ) {
+    userFail.innerHTML = `El usuario ${userName} ya existe, porfavor intente con otro nombre <br> o puedes intentar con ${
+      userName + Math.floor(Math.random() * 1000).toString(36)
+    } o ${userName + Math.floor(Math.random() * 1000).toString(36)}`;
     userFail.style.display = "block";
     userPasswordInput.disabled = true;
     userConfirmPasswordInput.disabled = true;

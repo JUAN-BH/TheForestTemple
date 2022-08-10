@@ -13,9 +13,11 @@ const localUsers = JSON.parse(localStorage.getItem("users"));
 const NewUsers = JSON.parse(localStorage.getItem("newUsers"));
 const allUsers = [...localUsers, ...NewUsers];
 function getData() {
+  console.log("allUsers", allUsers);
   const user = allUsers.find((e) => {
     return e.id === idUserIn;
   });
+  console.log("user", user);
   return user.matches.map((e) => e.match);
 }
 console.log("data extraida", getData());
