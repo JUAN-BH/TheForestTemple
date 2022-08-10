@@ -21,6 +21,20 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <main class="mainRegister">
@@ -37,43 +51,58 @@
         </nav>
         <div class="userInformation__userInfo">
           <div class="userInfo__info">
-            <label for="userName">Usuario </label>
-            <p class="userFail inputFail">
-              Usuario ya existente, intenta con otro nombre para continuar*
-            </p>
-            <input
-              type="text"
-              name="userName"
-              id="userName"
-              class="userInfoInput"
-            />
-            <label for="userPassword">Contraseña</label>
-            <input
-              type="password"
-              name="userPassword"
-              id="userPassword"
-              class="userInfoInput"
-            />
-            <label for="confirmPassword" class="confirmPasswordLabel"
-              >Confirmar Contraseña</label
-            >
-            <p class="passFail inputFail">
-              Las Contraseñas no conciden, porfavor vuelve a intentar para
-              continuar*
-            </p>
-            <input
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
-              class="userInfoInput"
-            />
-            <label for="userAge">Edad</label>
-            <input
-              type="number"
-              name="userAge"
-              id="userAge"
-              class="userInfoInput"
-            />
+            <div class="inputRetro">
+              <label for="userName">Usuario </label>
+              <p class="userFail inputFail">
+                Usuario ya existente, intenta con otro nombre para continuar*
+              </p>
+              <input
+                type="text"
+                name="userName"
+                id="userName"
+                class="userInfoInput"
+              />
+              <i class="fa-solid fa-circle-check check checkUser"></i>
+              <i class="fa-solid fa-circle-xmark wrong wrongUser"></i>
+            </div>
+            <div class="inputRetro">
+              <label for="userPassword">Contraseña</label>
+              <input
+                type="password"
+                name="userPassword"
+                id="userPassword"
+                class="userInfoInput"
+              />
+              <i class="fa-solid fa-circle-check check checkPass"></i>
+              <i class="fa-solid fa-circle-xmark wrong wrongPass"></i>
+            </div>
+            <div class="inputRetro">
+              <label for="confirmPassword" class="confirmPasswordLabel"
+                >Confirmar Contraseña</label
+              >
+              <p class="passFail inputFail">
+                Las Contraseñas no conciden, porfavor vuelve a intentar para
+                continuar*
+              </p>
+              <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                class="userInfoInput"
+              />
+              <i class="fa-solid fa-circle-check check checkPassC"></i>
+              <i class="fa-solid fa-circle-xmark wrong wrongPassC"></i>
+            </div>
+            <div class="inputRetro">
+              <label for="userAge">Edad</label>
+              <input
+                type="number"
+                name="userAge"
+                id="userAge"
+                class="userInfoInput"
+              />
+              <i class="fa-solid fa-circle-check check checkAge"></i>
+            </div>
           </div>
           <div class="userInfo__location">
             <label for="" class="countryLabel">

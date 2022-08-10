@@ -40,15 +40,48 @@ function checkPassword() {
     passFail.classList.add("visible");
     userNameInput.disabled = true;
     userAgeInput.disabled = true;
+    userPasswordInput.style.border = "2px solid red";
+    userConfirmPasswordInput.style.border = "2px solid red";
+    checkPasswordEl.classList.remove("visible");
+    checkPasswordC.classList.remove("visible");
+    wrongPassword.classList.add("visible");
+    wrongPasswordC.classList.add("visible");
+  } else if (
+    userPasswordInput.value == "" &&
+    userConfirmPasswordInput.value == ""
+  ) {
+    passFail.classList.remove("visible");
+    userPasswordInput.style.border = "none";
+    wrongPassword.classList.remove("visible");
+    userConfirmPasswordInput.style.border = "none";
+    wrongPasswordC.classList.remove("visible");
+    userNameInput.disabled = false;
+    userAgeInput.disabled = false;
   } else {
     passFail.classList.remove("visible");
     userNameInput.disabled = false;
     userAgeInput.disabled = false;
     inputUserInfoValidator();
+    userPasswordInput.style.border = "2px solid #46bc8b";
+    userConfirmPasswordInput.style.border = "2px solid #46bc8b";
+    wrongPassword.classList.remove("visible");
+    wrongPasswordC.classList.remove("visible");
+    console.log("passwords match", checkPassword);
+    checkPasswordEl.classList.add("visible");
+    checkPasswordC.classList.add("visible");
   }
 }
 userConfirmPasswordInput.addEventListener("change", checkPassword);
-userAgeInput.addEventListener("change", inputUserInfoValidator);
+userAgeInput.addEventListener("change", () => {
+  if (userAgeInput.value == "") {
+    userAgeInput.style.border = "none";
+    checkAge.classList.remove("visible");
+  } else {
+    userAgeInput.style.border = "2px solid #46bc8b";
+    checkAge.classList.add("visible");
+  }
+  inputUserInfoValidator();
+});
 userNameInput.addEventListener("change", function (e) {
   const userName = e.target.value;
   const userNameNoSpaces = userName.replace(/\s/g, "").toLowerCase();
@@ -60,24 +93,24 @@ userNameInput.addEventListener("change", function (e) {
       return e.userName.replace(/\s/g, "").toLowerCase();
     }
   );
-  // console.log("newUsersNames", newUsersNames);
-  // console.log(usersNames);
   if (
     usersNames.includes(userNameNoSpaces) ||
     newUsersNames.includes(userNameNoSpaces)
   ) {
-    userFail.innerHTML = `El usuario ${userName} ya existe, porfavor intente con otro nombre <br> o puedes intentar con ${
-      userName + Math.floor(Math.random() * 1000).toString(36)
-    } o ${userName + Math.floor(Math.random() * 1000).toString(36)}`;
     userFail.style.display = "block";
     userPasswordInput.disabled = true;
     userConfirmPasswordInput.disabled = true;
     userAgeInput.disabled = true;
+    userNameInput.style.border = "2px solid red";
+    wrongUserName.classList.add("visible");
   } else {
     userFail.style.display = "none";
     userPasswordInput.disabled = false;
     userConfirmPasswordInput.disabled = false;
     userAgeInput.disabled = false;
+    userNameInput.style.border = "2px solid #46bc8b";
+    wrongUserName.classList.remove("visible");
+    checkUserName.classList.add("visible");
     inputUserInfoValidator();
   }
 });

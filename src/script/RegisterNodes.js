@@ -13,6 +13,14 @@ const confirmPasswordLabel = $(".confirmPasswordLabel");
 const userFail = $(".userFail");
 const passFail = $(".passFail");
 const allUserInfoInputs = $$(".userInfoInput");
+
+const checkUserName = $(".checkUser");
+const wrongUserName = $(".wrongUser");
+const checkPasswordEl = $(".checkPass");
+const wrongPassword = $(".wrongPass");
+const checkPasswordC = $(".checkPassC");
+const wrongPasswordC = $(".wrongPassC");
+const checkAge = $(".checkAge");
 //FORM USER LOCATION
 const userLocationContainer = $(".userInfo__location");
 const btnRegister = $(".btn--registrar");

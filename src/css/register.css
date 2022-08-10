@@ -8,6 +8,8 @@ body {
   width: 100%;
   height: 100vh;
 }
+/*---REGISTRO---*/
+/*Header*/
 .userInformation {
   width: 60%;
   height: 100%;
@@ -36,17 +38,15 @@ body {
   color: var(--greenText);
   border-bottom: solid 4px var(--greenText);
 }
+/*--data--*/
 .userInformation__userInfo {
   /* background-color: lightblue; */
   /* height: 500px; */
   margin-top: 42px;
 }
+/*userInfo*/
 .userInfo__info {
   display: block;
-}
-.userInfo__location {
-  position: relative;
-  display: none;
 }
 .userInfo__info label {
   display: block;
@@ -74,56 +74,44 @@ body {
 .userInformation__userInfo input:focus {
   outline: none;
 }
-.btn--registrar {
-  width: 444px;
-  height: 60px;
-  margin-top: 20px;
-  cursor: pointer;
-  font-size: 20px;
-  color: white;
-  border: none;
-  background-color: var(--disableBtn);
-  transition: all 0.2s ease-in-out;
-}
-.btn--registrar:hover {
-  background-color: var(--greenText);
-}
-
 .inputFail {
   font-size: 14px;
   color: red;
   margin-bottom: 8px;
 }
+.inputRetro {
+  position: relative;
+}
+.check {
+  position: absolute;
+  display: none !important;
+  top: 50px;
+  left: 416px;
+  border-radius: 50%;
+  color: var(--greenText);
+}
+.wrong {
+  position: absolute;
+  display: none !important;
+  top: 75px;
+  left: 416px;
+  border-radius: 50%;
+  color: var(--greenText);
+  color: red;
+}
+.wrongPass {
+  top: 50px;
+}
 .userFail,
 .passFail {
   display: none;
 }
-
-.loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  position: absolute;
-  left: calc(50% - 24px);
-  top: calc(50% - 24px);
-  animation: rotate 1s linear infinite;
+/*userLocation*/
+.userInfo__location {
+  position: relative;
+  display: none;
 }
-.loader::before,
-.loader::after {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  inset: 0px;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  animation: prixClipFix 2s linear infinite;
-}
-.loader::after {
-  border-color: var(--greenText);
-  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
-  inset: 6px;
-}
-
+/*userLocation__select*/
 /***SELECTS***/
 .visible {
   display: block !important;
@@ -251,7 +239,22 @@ body {
 .select-box-states {
   z-index: 15;
 }
-
+/*userLocation__select*/
+.btn--registrar {
+  width: 444px;
+  height: 60px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  border: none;
+  background-color: var(--disableBtn);
+  transition: all 0.2s ease-in-out;
+}
+.btn--registrar:hover {
+  background-color: var(--greenText);
+}
+/*---REGISTRO---*/
 /***PROMO***/
 .promo {
   position: relative;
@@ -290,4 +293,30 @@ body {
 }
 .promo_text p {
   height: 560px;
+}
+/***PROMO***/
+/*--Loader--*/
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 24px);
+  top: calc(50% - 24px);
+  animation: rotate 1s linear infinite;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  animation: prixClipFix 2s linear infinite;
+}
+.loader::after {
+  border-color: var(--greenText);
+  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+  inset: 6px;
 }
