@@ -1,5 +1,5 @@
 @import url("global.CSS");
-@import url("/src/css/animations.css");
+@import url("animations.css");
 body {
   background: var(--backgroundPanelWhite) no-repeat center center fixed;
 }
@@ -277,7 +277,7 @@ body {
   justify-content: center;
   width: 40%;
   height: 100%;
-  background-image: url("/src/assets/img/backPromoImg2.png");
+  background-image: url("../assets/img/backPromoImg2.png");
   background-size: cover;
   background-position: -1000px 0px;
   background-repeat: no-repeat;
