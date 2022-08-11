@@ -4,16 +4,21 @@
   "description": "FrontEnd del video juego creado",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d src"
+
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JUAN-BH/talentum.git"
   },
-  "author": "Juan Manuel Becerra",
+  "author": "Juan Manuel Becerra, Carlos Muñoz, Jose Alejandro Lopez",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/JUAN-BH/talentum/issues"
   },
-  "homepage": "https://github.com/JUAN-BH/talentum#readme"
+  "homepage": "https://github.com/JUAN-BH/talentum#readme",
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
