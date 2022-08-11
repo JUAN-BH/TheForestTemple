@@ -22,5 +22,5 @@ btnStats.addEventListener("click", () => {
 });
 
 if (!isLogged()) {
-  window.location.href = "./index.html";
+  window.location.href = "../index.html";
 }
