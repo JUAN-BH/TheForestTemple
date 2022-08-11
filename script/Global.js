@@ -194,5 +194,5 @@ export function isLogged() {
 }
 export function logout() {
   localStorage.removeItem("userIN");
-  window.location.href = "../index.html";
+  window.location.href = "./index.html";
 }
