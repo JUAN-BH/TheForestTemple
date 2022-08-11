@@ -23,7 +23,7 @@
   src: url("/src/fonts/alagard.ttf");
 }
 body {
-  background: url("/src/assets/img/backPromoImg2.png") no-repeat center center
+  background: url("../assets/img/backPromoImg2.png") no-repeat center center
     fixed;
 }
 .headerGame {
