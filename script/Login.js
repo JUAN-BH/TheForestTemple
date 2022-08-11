@@ -14,8 +14,8 @@ function login() {
   const userQuery = allUsers.find((e) => {
     return e.userName === userName && e.userPassword === userPassword;
   });
-  console.log(userQuery);
-  console.log(allUsers.map((e) => e.userName).includes(userName));
+  // console.log(userQuery);
+  // console.log(allUsers.map((e) => e.userName).includes(userName));
   if (allUsers.map((e) => e.userName).includes(userName)) {
     if (userQuery) {
       writeLocalStorage("userIN", JSON.stringify(userQuery.id));
@@ -23,7 +23,7 @@ function login() {
       passFail.style.display = "none";
       labelUser.style.border = "none";
       labelPass.style.border = "none";
-      window.location.href = "../pages/gameUser.html";
+      window.location.href = "/src/pages/gameUser.html";
     } else {
       passFail.innerHTML = "Contraseña incorrecta";
       // userFail.style.display = "block";
@@ -78,5 +78,5 @@ inputUserPassword.addEventListener("keyup", (e) => {
   btnLogin.addEventListener("click", login);
 
 if (isLogged()) {
-  window.location.href = "../pages/gameUser.html";
+  window.location.href = "/src/pages/gameUser.html";
 }
