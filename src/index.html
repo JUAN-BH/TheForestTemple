@@ -22,7 +22,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Talentum</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" href="/src/assets/img/iconGame.png" />
+    <title>Inicio de sesión</title>
   </head>
   <body>
     <header>
@@ -31,28 +46,34 @@
       </section>
     </header>
     <main>
-      <div class="animate__animated animate__fadeIn login">
+      <section class="animate__animated animate__fadeIn login">
         <h1 class="login__title greenTitle">Iniciar Sesión</h1>
-        <form action="" class="login__formLog">
-          <label class="formLog_label" for="inputUser">
-            <span class="userIcon"></span>
-            <input
-              type="text"
-              placeholder="Usuario"
-              name="inputUser"
-              class="inputUser"
-            />
-          </label>
-
-          <label class="formLog_label" for="inputPassword">
-            <span class="lockIcon"></span>
-            <input
-              type="password"
-              placeholder="Contraseña"
-              name="inputPassword"
-              class="inputPassword"
-            />
-          </label>
+        <form class="login__formLog">
+          <div class="inputRetro">
+            <label class="formLog_label labelUser" for="inputUser">
+              <span class="userIcon"></span>
+              <input
+                type="text"
+                placeholder="Usuario"
+                name="inputUser"
+                class="inputUser"
+              />
+            </label>
+            <p class="userFail">nose algo</p>
+          </div>
+          <div class="inputRetro">
+            <label class="formLog_label labelPass" for="inputPassword">
+              <span class="lockIcon"></span>
+              <input
+                type="password"
+                placeholder="Contraseña"
+                name="inputPassword"
+                class="inputPassword"
+              />
+              <i class="fa-solid fa-eye"></i>
+            </label>
+            <p class="passFail">nose algo</p>
+          </div>
         </form>
         <button class="login--btn">Iniciar</button>
         <p class="login__info">
@@ -62,7 +83,7 @@
             >aquí</a
           >
         </p>
-      </div>
+      </section>
     </main>
     <script src="script/Global.js" type="module"></script>
     <script src="script/LoginNodes.js"></script>

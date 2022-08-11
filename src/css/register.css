@@ -85,19 +85,27 @@ body {
 .check {
   position: absolute;
   display: none !important;
-  top: 50px;
-  left: 416px;
+  top: 15px;
+  left: 455px;
   border-radius: 50%;
   color: var(--greenText);
 }
 .wrong {
   position: absolute;
   display: none !important;
-  top: 75px;
-  left: 416px;
+  top: 15px;
+  left: 455px;
   border-radius: 50%;
   color: var(--greenText);
   color: red;
+}
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  top: 15px;
+  left: 408px;
+  cursor: pointer;
+  color: #7a7a7a;
 }
 .wrongPass {
   top: 50px;
@@ -240,6 +248,11 @@ body {
   z-index: 15;
 }
 /*userLocation__select*/
+.registerFail {
+  display: none;
+  color: red;
+  font-size: 16px;
+}
 .btn--registrar {
   width: 444px;
   height: 60px;

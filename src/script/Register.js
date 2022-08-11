@@ -1,10 +1,4 @@
-import {
-  idGenerator,
-  saveUser,
-  saveSession,
-  loadInitalState,
-  UserClass,
-} from "./Global.js";
+import { saveUser, UserClass } from "./Global.js";
 // loadInitalState();
 const api = axios.create({
   baseURL: "https://api.countrystatecity.in/v1/",
@@ -25,11 +19,10 @@ function inputUserInfoValidator() {
   ) {
   } else {
     // alert("Todos los campos son obligatorios");
-    localidad.classList.toggle("local-active");
+    localidad.classList.add("local-active");
     userInfoContainer.style.display = "none";
     userLocationContainer.style.display = "block";
     localidad.addEventListener("click", () => {
-      localidad.classList.toggle("local-active");
       userInfoContainer.style.display = "none";
       userLocationContainer.style.display = "block";
     });
@@ -101,8 +94,17 @@ userNameInput.addEventListener("change", function (e) {
     userPasswordInput.disabled = true;
     userConfirmPasswordInput.disabled = true;
     userAgeInput.disabled = true;
+    checkUserName.classList.remove("visible");
     userNameInput.style.border = "2px solid red";
     wrongUserName.classList.add("visible");
+  } else if (userName == "") {
+    userFail.style.display = "none";
+    userPasswordInput.disabled = false;
+    userConfirmPasswordInput.disabled = false;
+    userAgeInput.disabled = false;
+    checkUserName.classList.remove("visible");
+    userNameInput.style.border = "none";
+    wrongUserName.classList.remove("visible");
   } else {
     userFail.style.display = "none";
     userPasswordInput.disabled = false;
@@ -114,6 +116,27 @@ userNameInput.addEventListener("change", function (e) {
     inputUserInfoValidator();
   }
 });
+eyePass[0].addEventListener("click", () => {
+  console.log("eye");
+  if (userPasswordInput.type == "password") {
+    userPasswordInput.type = "text";
+    eyePass[0].classList.toggle("fa-eye-slash");
+  } else {
+    userPasswordInput.type = "password";
+    eyePass[0].classList.toggle("fa-eye-slash");
+  }
+});
+eyePass[1].addEventListener("click", () => {
+  console.log("eye2");
+  if (userConfirmPasswordInput.type == "password") {
+    userConfirmPasswordInput.type = "text";
+    eyePass[1].classList.toggle("fa-eye-slash");
+  } else {
+    userConfirmPasswordInput.type = "password";
+    eyePass[1].classList.toggle("fa-eye-slash");
+  }
+});
+
 perfil.addEventListener("click", () => {
   // localidad.classList.toggle("local-active");
   userInfoContainer.style.display = "block";
@@ -136,7 +159,9 @@ btnRegister.addEventListener("click", () => {
     userState === "" ||
     userCity === ""
   ) {
-    alert("Todos los campos son obligatorios");
+    registerFail.innerHTML =
+      "Ups! Alguno de los campos quedo vacio, porfavor completalo";
+    registerFail.style.display = "block";
   } else if (userPassword === userConfirmPassword) {
     const user = new UserClass({
       userName: userName,
@@ -148,8 +173,8 @@ btnRegister.addEventListener("click", () => {
     });
     // saveUser(user);
     // sessionStorage.setItem("user", JSON.stringify(user));
-    saveSession(user);
-    saveUser(JSON.parse(sessionStorage.getItem("newUser")));
+    // saveSession(user);
+    saveUser(user);
     // alert("Registro exitoso");
     window.location.href = "/src/index.html";
   }

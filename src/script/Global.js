@@ -165,19 +165,10 @@ export const writeLocalStorage = (key, value) => {
 export const loadInitalState = () => {
   writeLocalStorage("users", JSON.stringify(initialState));
 };
-//sessionStorage
-const readSessionStorage = (key) => {
-  return sessionStorage.getItem(key);
-};
-const writeSessionStorage = (key, value) => {
-  sessionStorage.setItem(key, value);
-};
-export const saveSession = (newUser) => {
-  writeSessionStorage("newUser", JSON.stringify(newUser));
-};
 function savedUsers() {
   const savedUsers = JSON.parse(readLocalStorage("newUsers"));
   let users;
+  let initialStateSession = [];
   if (savedUsers) {
     users = savedUsers;
   } else {
@@ -187,7 +178,7 @@ function savedUsers() {
 }
 export const saveUser = (newUser) => {
   const users = savedUsers();
-  newUser = JSON.parse(readSessionStorage("newUser"));
+  // newUser = JSON.parse(readSessionStorage("newUser"));
   users.push(newUser);
   writeLocalStorage("newUsers", JSON.stringify(users));
 };

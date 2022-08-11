@@ -21,8 +21,10 @@ const wrongPassword = $(".wrongPass");
 const checkPasswordC = $(".checkPassC");
 const wrongPasswordC = $(".wrongPassC");
 const checkAge = $(".checkAge");
+const eyePass = $$(".fa-eye");
 //FORM USER LOCATION
 const userLocationContainer = $(".userInfo__location");
+const registerFail = $(".registerFail");
 const btnRegister = $(".btn--registrar");
 //COUNTRIES
 const selectedCountry = $(".selectedCountry");

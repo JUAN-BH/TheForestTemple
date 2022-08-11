@@ -126,11 +126,6 @@ const myChart = new Chart(chartElement, {
 const getDataSet = (show) => {
   console.log("show", show);
   console.log("KEYS DATASET", Object.keys(dataSet));
-  if (show !== undefined) {
-    Object.keys(dataSet).map((key) => {
-      dataSet[key].hidden = show === "indicadores" ? false : key !== show;
-    });
-  }
   let games = [];
   data.map((game, i) => {
     dataSet.energies.data.push(game.energies);
@@ -141,6 +136,27 @@ const getDataSet = (show) => {
   myChart.data.datasets = Object.values(dataSet);
   myChart.data.labels = games;
   myChart.update();
+  if (show === "indicadores") {
+    dataSet.powerUps.hidden = false;
+    dataSet.cleanRooms.hidden = false;
+    dataSet.energies.hidden = false;
+    myChart.update();
+  } else if (show === "salasLimpiadas") {
+    dataSet.powerUps.hidden = true;
+    dataSet.cleanRooms.hidden = false;
+    dataSet.energies.hidden = true;
+    myChart.update();
+  } else if (show === "powerUpsRecogidos") {
+    dataSet.powerUps.hidden = false;
+    dataSet.cleanRooms.hidden = true;
+    dataSet.energies.hidden = true;
+    myChart.update();
+  } else if (show === "energiasRecogidas") {
+    dataSet.powerUps.hidden = true;
+    dataSet.cleanRooms.hidden = true;
+    dataSet.energies.hidden = false;
+    myChart.update();
+  }
 };
 
 getDataSet();
@@ -149,7 +165,7 @@ getDataSet();
 //   return getDataSet(e.value);
 // };
 select.addEventListener("change", (e) => {
-  getDataSet(select.value);
+  getDataSet(e.target.value);
   //   getDataSet(e.value);
 });
 

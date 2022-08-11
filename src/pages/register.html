@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registracion</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="../css/register.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap"
@@ -35,6 +35,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="icon" href="/src/assets/img/iconGame.png" />
   </head>
   <body>
     <main class="mainRegister">
@@ -51,11 +52,11 @@
         </nav>
         <div class="userInformation__userInfo">
           <div class="userInfo__info">
+            <label for="userName">Usuario </label>
+            <p class="userFail inputFail">
+              Usuario ya existente, intenta con otro nombre para continuar*
+            </p>
             <div class="inputRetro">
-              <label for="userName">Usuario </label>
-              <p class="userFail inputFail">
-                Usuario ya existente, intenta con otro nombre para continuar*
-              </p>
               <input
                 type="text"
                 name="userName"
@@ -65,8 +66,8 @@
               <i class="fa-solid fa-circle-check check checkUser"></i>
               <i class="fa-solid fa-circle-xmark wrong wrongUser"></i>
             </div>
+            <label for="userPassword">Contraseña</label>
             <div class="inputRetro">
-              <label for="userPassword">Contraseña</label>
               <input
                 type="password"
                 name="userPassword"
@@ -75,15 +76,16 @@
               />
               <i class="fa-solid fa-circle-check check checkPass"></i>
               <i class="fa-solid fa-circle-xmark wrong wrongPass"></i>
+              <i class="fa-solid fa-eye"></i>
             </div>
+            <label for="confirmPassword" class="confirmPasswordLabel"
+              >Confirmar Contraseña</label
+            >
+            <p class="passFail inputFail">
+              Las Contraseñas no conciden, porfavor vuelve a intentar para
+              continuar*
+            </p>
             <div class="inputRetro">
-              <label for="confirmPassword" class="confirmPasswordLabel"
-                >Confirmar Contraseña</label
-              >
-              <p class="passFail inputFail">
-                Las Contraseñas no conciden, porfavor vuelve a intentar para
-                continuar*
-              </p>
               <input
                 type="password"
                 name="confirmPassword"
@@ -92,9 +94,11 @@
               />
               <i class="fa-solid fa-circle-check check checkPassC"></i>
               <i class="fa-solid fa-circle-xmark wrong wrongPassC"></i>
+              <i class="fa-solid fa-eye"></i>
+              <!-- <i class="fa-solid fa-eye-slash"></i> -->
             </div>
+            <label for="userAge">Edad</label>
             <div class="inputRetro">
-              <label for="userAge">Edad</label>
               <input
                 type="number"
                 name="userAge"
@@ -164,7 +168,7 @@
                 </div>
               </div>
             </label>
-
+            <p class="registerFail">lol</p>
             <button type="button" class="btn--registrar">REGISTRAR</button>
           </div>
         </div>
