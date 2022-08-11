@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./../css/gameUser.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="icon" href="/src/assets/img/iconGame.png" />
+
+    <title>Menu</title>
+  </head>
+  <body>
+    <header>
+      <section class="headerGame">
+        <p>The Forest Temple</p>
+      </section>
+    </header>
+    <main class="animate__animated animate__fadeInDown container__btn">
+      <button class="btn btn--play">JUGAR</button>
+      <button class="btn btn--stats">ESTADÍSTICAS</button>
+      <button class="btn btn--logOut">CERRAR SESIÓN</button>
+    </main>
+    <div class="modalLogOut">
+      <div class="animate__animated animate__fadeIn modalContainer__LogOut">
+        <p>¿Estas seguro que quieres cerrar tu sesión?</p>
+        <div class="logOut__btns">
+          <button class="btn--cancelLogOut">Cancelar</button>
+          <button class="btn--confirmLogOut">Confirmar</button>
+        </div>
+      </div>
+    </div>
+    <script src="/src/script/Global.js" type="module"></script>
+    <script src="/src/script/gameUser.js" type="module"></script>
+  </body>
+</html>

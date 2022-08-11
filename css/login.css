@@ -1,0 +1,96 @@
+@import url("global.CSS");
+
+.login {
+  display: flex;
+  flex-flow: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 500px;
+  height: auto;
+  padding: 20px 0;
+  margin: auto;
+  background-color: var(--backgroundPanelWhite);
+  border-radius: 10px;
+  box-shadow: 0px 0px 14px 8px rgba(57, 52, 79, 0.8);
+}
+
+.login__title {
+  margin: 26px 0 34px 0;
+}
+.login__formLog {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: column;
+}
+.formLog_label {
+  display: flex;
+  align-items: center;
+  background: white;
+  height: 44.5px;
+  width: 350px;
+  padding: 0 0 0 0.9rem;
+  /* border: 2px solid red; */
+  border-radius: 5px;
+}
+.inputRetro:first-child {
+  margin-bottom: 30px;
+}
+.userIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/icons/User_icon.svg") no-repeat center;
+}
+.lockIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/icons/Lock_Icon.svg") no-repeat center;
+}
+.userFail,
+.passFail {
+  display: none;
+  margin-top: 4px;
+  color: red;
+  font-size: 13px;
+}
+.login__formLog input {
+  width: 350px;
+  padding: 0.2rem 0.2rem;
+  margin: 0.5rem;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+}
+.login__formLog input:focus {
+  outline: none;
+}
+.login--btn {
+  width: 25%;
+  margin: 28px 0;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: var(--disableBtn);
+  color: var(--backgroundPanelWhite);
+  border: none;
+  border-radius: 5px;
+}
+.login--btn:hover {
+  background-color: var(--activeBtn);
+}
+.login__info {
+  font-size: 15px;
+  color: var(--grayText);
+  text-align: center;
+  /* width: 100%; */
+}
+.fa-eye,
+.fa-eye-slash {
+  /* position: absolute;
+  top: 15px;
+  left: 408px; */
+  margin-right: 14px;
+  cursor: pointer;
+  color: #7a7a7a;
+}
