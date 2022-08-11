@@ -176,7 +176,7 @@ btnRegister.addEventListener("click", () => {
     // saveSession(user);
     saveUser(user);
     // alert("Registro exitoso");
-    window.location.href = "/src/index.html";
+    window.location.href = "../index.html";
   }
 });
 //COUNTRIES
