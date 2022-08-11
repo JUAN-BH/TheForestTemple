@@ -20,7 +20,7 @@ function getData() {
   console.log("user", user);
   return user.matches.map((e) => e.match);
 }
-console.log("data extraida", getData());
+// console.log("data extraida", getData());
 //----------------------------------------------------------------------------------------------//
 // const data = [
 //   {
