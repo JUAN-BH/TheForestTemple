@@ -3,10 +3,10 @@ const $ = (element) => document.querySelector(element);
 const btnBack = $(".arrowback");
 const select = $(".select");
 if (!isLogged()) {
-  window.location.href = "/src/index.html";
+  window.location.href = "../index.html";
 }
 btnBack.addEventListener("click", () => {
-  window.location.href = "/src/pages/gameUser.html";
+  window.location.href = "../pages/gameUser.html";
 });
 const idUserIn = JSON.parse(localStorage.getItem("userIN"));
 const localUsers = JSON.parse(localStorage.getItem("users"));

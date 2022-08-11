@@ -1,7 +1,12 @@
 import { loadInitalState, writeLocalStorage, isLogged } from "./Global.js";
 loadInitalState();
 const users = JSON.parse(localStorage.getItem("users"));
-const newUsers = JSON.parse(localStorage.getItem("newUsers"));
+let newUsers;
+if (localStorage.getItem("newUsers") === null) {
+  newUsers = [];
+} else {
+  newUsers = JSON.parse(localStorage.getItem("newUsers"));
+}
 const allUsers = [...users, ...newUsers];
 function login() {
   const userName = inputUserName.value;
