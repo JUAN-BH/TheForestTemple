@@ -81,11 +81,15 @@ userNameInput.addEventListener("change", function (e) {
   const usersNames = JSON.parse(localStorage.getItem("users")).map((e) => {
     return e.userName.replace(/\s/g, "").toLowerCase();
   });
-  const newUsersNames = JSON.parse(localStorage.getItem("newUsers")).map(
-    (e) => {
+  let newUsersNames;
+  if (localStorage.getItem("newUsers") === null) {
+    newUsersNames = [];
+  } else {
+    newUsersNames = JSON.parse(localStorage.getItem("newUsers")).map((e) => {
       return e.userName.replace(/\s/g, "").toLowerCase();
-    }
-  );
+    });
+  }
+  // const newUsersNames = JSON.parse(localStorage.getItem("newUsers"))
   if (
     usersNames.includes(userNameNoSpaces) ||
     newUsersNames.includes(userNameNoSpaces)
