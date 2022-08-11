@@ -7,9 +7,10 @@ const modalLogOut = $(".modalLogOut");
 const modalContentLogOut = $(".modalContainer__LogOut");
 const btnConfirmLogOut = $(".btn--confirmLogOut");
 const btnCancelLogOut = $(".btn--cancelLogOut");
-console.log(btnLogout);
+btnPlay.addEventListener("click", () => {
+  window.location.href = "../game/index.html";
+});
 btnLogout.addEventListener("click", () => {
-  console.log("click");
   modalLogOut.style.display = "block";
 });
 btnConfirmLogOut.addEventListener("click", logout);

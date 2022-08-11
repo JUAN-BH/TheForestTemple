@@ -23,7 +23,7 @@ function login() {
       passFail.style.display = "none";
       labelUser.style.border = "none";
       labelPass.style.border = "none";
-      window.location.href = "/src/pages/gameUser.html";
+      window.location.href = "./pages/gameUser.html";
     } else {
       passFail.innerHTML = "Contraseña incorrecta";
       // userFail.style.display = "block";
@@ -78,5 +78,5 @@ inputUserPassword.addEventListener("keyup", (e) => {
   btnLogin.addEventListener("click", login);
 
 if (isLogged()) {
-  window.location.href = "/src/pages/gameUser.html";
+  window.location.href = "./pages/gameUser.html";
 }
