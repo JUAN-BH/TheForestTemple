@@ -59,7 +59,6 @@ function checkPassword() {
     userConfirmPasswordInput.style.border = "2px solid #46bc8b";
     wrongPassword.classList.remove("visible");
     wrongPasswordC.classList.remove("visible");
-    console.log("passwords match", checkPassword);
     checkPasswordEl.classList.add("visible");
     checkPasswordC.classList.add("visible");
   }
@@ -121,7 +120,6 @@ userNameInput.addEventListener("change", function (e) {
   }
 });
 eyePass[0].addEventListener("click", () => {
-  console.log("eye");
   if (userPasswordInput.type == "password") {
     userPasswordInput.type = "text";
     eyePass[0].classList.toggle("fa-eye-slash");
@@ -131,7 +129,6 @@ eyePass[0].addEventListener("click", () => {
   }
 });
 eyePass[1].addEventListener("click", () => {
-  console.log("eye2");
   if (userConfirmPasswordInput.type == "password") {
     userConfirmPasswordInput.type = "text";
     eyePass[1].classList.toggle("fa-eye-slash");
