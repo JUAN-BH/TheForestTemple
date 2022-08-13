@@ -9,7 +9,7 @@ Sin embargo, debido a algunos percances presentados, no se pudo llevar a cabo un
 
 [Andres Felipe Hincapie](https://www.linkedin.com/in/andr%C3%A9s-felipe-hincapi%C3%A9-victoria-8106a921a/) realizó el diseño de la pagina.
 
-[Juan Manuel Becerra](https://www.linkedin.com/in/juan-manuel-becerra-hernandez-11b93b239/), Carlos Muñoz y [Jose Alejandro Lopez](https://www.linkedin.com/in/jalopezcer/) realizaron el Front.
+[Juan Manuel Becerra](https://www.linkedin.com/in/juan-manuel-becerra-hernandez-11b93b239/), [Carlos Muñoz](https://www.linkedin.com/in/carlos-mu%C3%B1oz-8047ab21b/) y [Jose Alejandro Lopez](https://www.linkedin.com/in/jalopezcer/) realizaron el Front.
 
 ## Tecnologias
 
