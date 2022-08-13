@@ -10,17 +10,20 @@ btnBack.addEventListener("click", () => {
 });
 const idUserIn = JSON.parse(localStorage.getItem("userIN"));
 const localUsers = JSON.parse(localStorage.getItem("users"));
-const NewUsers = JSON.parse(localStorage.getItem("newUsers"));
-const allUsers = [...localUsers, ...NewUsers];
+let newUsers;
+if (localStorage.getItem("newUsers") === null) {
+  newUsers = [];
+} else {
+  newUsers = JSON.parse(localStorage.getItem("newUsers"));
+}
+const allUsers = [...localUsers, ...newUsers];
 function getData() {
-  console.log("allUsers", allUsers);
   const user = allUsers.find((e) => {
     return e.id === idUserIn;
   });
   console.log("user", user);
   return user.matches.map((e) => e.match);
 }
-// console.log("data extraida", getData());
 //----------------------------------------------------------------------------------------------//
 // const data = [
 //   {
@@ -124,8 +127,6 @@ const myChart = new Chart(chartElement, {
 });
 
 const getDataSet = (show) => {
-  console.log("show", show);
-  console.log("KEYS DATASET", Object.keys(dataSet));
   let games = [];
   data.map((game, i) => {
     dataSet.energies.data.push(game.energies);

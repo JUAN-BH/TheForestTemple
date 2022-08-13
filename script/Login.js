@@ -50,11 +50,9 @@ function login() {
 }
 inputUserName.addEventListener("change", (e) => {
   if (allUsers.map((e) => e.userName).includes(e.target.value)) {
-    console.log("si");
     userFail.style.display = "none";
     labelUser.style.border = "none";
   } else {
-    console.log("valor", e.target.value);
     userFail.innerHTML = "Usuario no registrado";
     userFail.style.display = "block";
     labelUser.style.border = "1px solid red";
@@ -70,7 +68,6 @@ eyePass.addEventListener("click", () => {
   }
 });
 inputUserPassword.addEventListener("keyup", (e) => {
-  // console.log("keyup", e.keyCode);
   if (e.keyCode === 13) {
     login();
   }
