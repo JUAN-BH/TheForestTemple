@@ -6,7 +6,9 @@ Sin embargo, debido a algunos percances presentados, no se pudo llevar a cabo un
 ## Colaboradores
 
 [Juan Camilo Bolaños](https://www.linkedin.com/in/juan-camilo-bola%C3%B1os-aldana-31b768212/) realizó el video juego.
+
 [Andres Felipe Hincapie](https://www.linkedin.com/in/andr%C3%A9s-felipe-hincapi%C3%A9-victoria-8106a921a/) realizó el diseño de la pagina.
+
 [Juan Manuel Becerra](https://www.linkedin.com/in/juan-manuel-becerra-hernandez-11b93b239/), Carlos Muñoz y [Jose Alejandro Lopez](https://www.linkedin.com/in/jalopezcer/) realizaron el Front.
 
 ## Tecnologias
